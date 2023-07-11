@@ -1,5 +1,6 @@
 extends PlayGame
-var velocity = Vector2.ZERO
+class_name Player
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")

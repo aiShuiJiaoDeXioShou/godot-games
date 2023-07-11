@@ -1,18 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://q5pp6y3lnyxt"]
+[gd_scene load_steps=6 format=3 uid="uid://q5pp6y3lnyxt"]
 
 [ext_resource type="Script" path="res://src/games/attick/player.gd" id="1_5t70o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tacid"]
 size = Vector2(34, 20)
 
-[node name="player" type="Area2D"]
+[sub_resource type="Animation" id="Animation_4f41r"]
+resource_name = "color_rect"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.2, 0.2001, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_owqxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxyua"]
+_data = {
+"RESET": SubResource("Animation_owqxr"),
+"color_rect": SubResource("Animation_4f41r")
+}
+
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_5t70o")
 
 [node name="Label" type="Label" parent="."]
+clip_children = 2
 offset_right = 40.0
 offset_bottom = 23.0
 text = "玩家"
 
+[node name="ColorRect" type="ColorRect" parent="Label"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 23.0
+color = Color(1, 0, 0, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15, 13)
 shape = SubResource("RectangleShape2D_tacid")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qxyua")
+}

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ycejmytsoujn"]
+[gd_scene load_steps=4 format=3 uid="uid://ycejmytsoujn"]
 
 [ext_resource type="Script" path="res://src/games/attick/attick.gd" id="1_cfnp1"]
 [ext_resource type="PackedScene" uid="uid://q5pp6y3lnyxt" path="res://src/games/attick/player.tscn" id="2_8trbx"]
+[ext_resource type="PackedScene" uid="uid://dhuapiwoxxd50" path="res://src/games/attick/enemy.tscn" id="3_yjkx5"]
 
 [node name="attick_ui" type="Control"]
 layout_mode = 3
@@ -42,3 +43,6 @@ layout_mode = 2
 
 [node name="player" parent="." instance=ExtResource("2_8trbx")]
 position = Vector2(181, 392)
+
+[node name="enemy" parent="." instance=ExtResource("3_yjkx5")]
+position = Vector2(321, 210)

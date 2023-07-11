@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 class_name PlayGame
 @export var hp: int = 5
 @export var attick: int = 1
