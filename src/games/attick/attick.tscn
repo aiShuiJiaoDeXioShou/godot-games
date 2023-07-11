@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://ycejmytsoujn"]
+
+[ext_resource type="Script" path="res://src/games/attick/attick.gd" id="1_cfnp1"]
+[ext_resource type="PackedScene" uid="uid://q5pp6y3lnyxt" path="res://src/games/attick/player.tscn" id="2_8trbx"]
+
+[node name="attick_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cfnp1")
+
+[node name="HpContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HpName" type="Label" parent="HpContainer"]
+layout_mode = 2
+text = "hp:"
+
+[node name="Hp" type="Label" parent="HpContainer"]
+layout_mode = 2
+
+[node name="DefContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="NameLabel" type="Label" parent="DefContainer"]
+layout_mode = 2
+text = "姓名:"
+
+[node name="Name" type="Label" parent="DefContainer"]
+layout_mode = 2
+
+[node name="player" parent="." instance=ExtResource("2_8trbx")]
+position = Vector2(181, 392)

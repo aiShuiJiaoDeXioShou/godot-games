@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://q5pp6y3lnyxt"]
+
+[ext_resource type="Script" path="res://src/games/attick/player.gd" id="1_5t70o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tacid"]
+size = Vector2(34, 20)
+
+[node name="player" type="Area2D"]
+script = ExtResource("1_5t70o")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "玩家"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 13)
+shape = SubResource("RectangleShape2D_tacid")
